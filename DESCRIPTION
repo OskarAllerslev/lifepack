@@ -1,10 +1,11 @@
 Package: lifepack
-Title: Includes frunctions used for insurance mathematics for calculating reserves and alike
-Version: 0.0.2
+Title: Functions for Insurance Mathematics, Including Calculating Reserves
+Version: 0.0.4
 Authors@R: 
-    person("Oskar", "Allerslev", , "Oskar.m1660@gmail.com", role = c("aut", "cre"))
-Description: Includes frunctions used for insurance mathematics for calculating reserves and alike
-License: GPL (>= 3)
+    person("Oskar", "Allerslev", email = "Oskar.m1660@gmail.com", role = c("aut", "cre"))
+Description: Provides functions for calculations related to insurance mathematics, 
+    such as reserves and other actuarial computations.
+License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
