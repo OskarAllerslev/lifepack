@@ -2,36 +2,36 @@
 % Please edit documentation in R/equiv_premium.R
 \name{equiv_premium}
 \alias{equiv_premium}
-\title{Equivalence Premium
-This function calculates the equivalence premium for a given insurance contract
-This function requires proper construction of reward matrix like specified in the lecture notes provided in the course Liv1 at the University of Copenhagen
-This function requires proper construction of the derivative of the reward matrix}
+\title{Equivalence Premium}
 \usage{
 equiv_premium(s, t, Lambda, R, dR, mu, r, n)
 }
 \arguments{
-\item{s}{initial timepoint}
+\item{s}{Initial timepoint}
 
-\item{t}{end timepoint}
+\item{t}{End timepoint}
 
-\item{Lambda}{intensity matrix}
+\item{Lambda}{Intensity matrix}
 
-\item{R}{reward matrix}
+\item{R}{Reward matrix}
 
-\item{dR}{differential of reward matrix}
+\item{dR}{Differential of reward matrix}
 
-\item{mu}{equivalence premium guess}
+\item{mu}{Equivalence premium guess}
 
-\item{r}{constant rate as a scalar}
+\item{r}{Constant rate as a scalar}
 
-\item{n}{number of steps for the runge kutta algorithm}
+\item{n}{Number of steps for the Runge-Kutta algorithm}
 }
 \value{
-a scalar
+A scalar
 }
 \description{
-Equivalence Premium
-This function calculates the equivalence premium for a given insurance contract
-This function requires proper construction of reward matrix like specified in the lecture notes provided in the course Liv1 at the University of Copenhagen
-This function requires proper construction of the derivative of the reward matrix
+This function calculates the equivalence premium for an insurance contract.
+}
+\examples{
+Lambda <- function(x) matrix(c(-0.1, 0.1, 0.05, -0.05), nrow = 2)
+R <- function(x, mu) matrix(c(mu, 0, 0, mu), nrow = 2) # Corrected
+dR <- function(x, mu) matrix(c(0.1, 0, 0, 0.1), nrow = 2)
+equiv_premium(0, 80, Lambda, R, dR, 0.05, 0.03, 100)
 }

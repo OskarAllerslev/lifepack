@@ -1,19 +1,23 @@
 #' Equivalence Premium
-#' This function calculates the equivalence premium for a given insurance contract
-#' This function requires proper construction of reward matrix like specified in the lecture notes provided in the course Liv1 at the University of Copenhagen
-#' This function requires proper construction of the derivative of the reward matrix
-#' @param Lambda intensity matrix
-#' @param s initial timepoint
-#' @param t end timepoint
-#' @param n number of steps for the runge kutta algorithm
-#' @param r constant rate as a scalar
-#' @param mu equivalence premium guess
-#' @param dR differential of reward matrix
-#' @param R reward matrix
-#' @return a scalar
+#'
+#' This function calculates the equivalence premium for an insurance contract.
+#' @param s Initial timepoint
+#' @param t End timepoint
+#' @param Lambda Intensity matrix
+#' @param R Reward matrix
+#' @param dR Differential of reward matrix
+#' @param mu Equivalence premium guess
+#' @param r Constant rate as a scalar
+#' @param n Number of steps for the Runge-Kutta algorithm
+#' @return A scalar
+#' @examples
+#' Lambda <- function(x) matrix(c(-0.1, 0.1, 0.05, -0.05), nrow = 2)
+#' R <- function(x, mu) matrix(c(mu, 0, 0, mu), nrow = 2) # Corrected
+#' dR <- function(x, mu) matrix(c(0.1, 0, 0, 0.1), nrow = 2)
+#' equiv_premium(0, 80, Lambda, R, dR, 0.05, 0.03, 100)
 #' @export
 equiv_premium <- function(s, t, Lambda, R, dR, mu, r, n) {
-  b <- reserve(s, t, Lambda, R, 0.0, r, n)
-  a <- reserve(s, t, Lambda, dR, 0.0, r, n)
+  b <- reserve(s, t, Lambda, R, mu, r, n)
+  a <- reserve(s, t, Lambda, dR, mu, r, n)
   return(-b / a)
 }

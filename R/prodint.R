@@ -6,6 +6,9 @@
 #' @param t end timepoint
 #' @param n number of steps for the runge kutta algorithm
 #' @return returns a matrix (if using an intensity matrix as A you are given the transition probabilities)
+#' @examples
+#' Lambda <- function(x) matrix(c(-0.1, 0.1, 0, -0.1), 2, 2)
+#' prodint(Lambda, 0, 80, 100)
 #' @export
 prodint <- function(A, s, t, n) {
   x0 <- s

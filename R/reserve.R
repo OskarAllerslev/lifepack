@@ -9,6 +9,10 @@
 #' @param mu equivalence premium
 #' @param R reward matrix
 #' @return returns an entry in a matrix
+#' @examples
+#' Lambda <- function(x) matrix(c(-0.1, 0.1, 0, -0.1), 2, 2)
+#' R <- function(x, mu) matrix(c(0, 0, 0, mu), 2, 2)
+#' reserve(0, 80, Lambda, R, 200000, 0.01, 1000)
 #' @export
 reserve <- function(s, t, Lambda, R, mu, r, n) {
   dim <- nrow(Lambda(t))

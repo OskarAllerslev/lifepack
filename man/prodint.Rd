@@ -23,3 +23,7 @@ returns a matrix (if using an intensity matrix as A you are given the transition
 Productintegral
 This function calculates the productintegral of a matrix from s to t with a given number of steps for the runge kutta
 }
+\examples{
+Lambda <- function(x) matrix(c(-0.1, 0.1, 0, -0.1), 2, 2)
+prodint(Lambda, 0, 80, 100)
+}
