@@ -1,6 +1,6 @@
 Package: lifepack
 Title: Functions for Insurance Mathematics, Including Calculating Reserves
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: 
     person("Oskar", "Allerslev", email = "Oskar.m1660@gmail.com", role = c("aut", "cre"))
 Description: Provides functions for calculations related to insurance mathematics, 
