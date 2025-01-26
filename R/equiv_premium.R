@@ -17,7 +17,17 @@
 #' equiv_premium(0, 80, Lambda, R, dR, 0.05, 0.03, 100)
 #' @export
 equiv_premium <- function(s, t, Lambda, R, dR, mu, r, n) {
+  # Compute the reserve matrices
   b <- reserve(s, t, Lambda, R, mu, r, n)
   a <- reserve(s, t, Lambda, dR, mu, r, n)
-  return(-b / a)
+
+  # Define a column vector of ones of appropriate size
+  ones <- rep(1, nrow(b))  # `nrow(b)` gives `p`
+
+  # Aggregate the matrices into scalars using vector multiplication
+  b_scalar <- sum(b %*% ones)
+  a_scalar <- sum(a %*% ones)
+
+  # Return the equivalence premium as a scalar
+  return(-b_scalar / a_scalar)
 }

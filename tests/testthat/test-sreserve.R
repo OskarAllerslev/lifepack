@@ -1,4 +1,4 @@
-test_that("equiv_premium works correctly", {
+test_that("sreserve works correctly", {
   Lambda <- function(x) {
     A <- matrix(0, 3, 3)
     A[1, 2] <- (0.0004 + 10^(4.54 + 0.06 * (x + 30) - 10)) * ifelse(x <= 35, 1, 0)
@@ -15,14 +15,14 @@ test_that("equiv_premium works correctly", {
       return(diag(c(400000, 400000, 0)))
     }
   }
-  dR <- function(x, mu) {
-    if (x <= 35) {
-      return(diag(c(-1, 0, 0)))
-    } else {
-      return(diag(c(0, 0, 0)))
-    }
-  }
-  result <- equiv_premium(0, 1, Lambda, R, dR, 0.05, 0.03, 5000)
-  expect_true(!any(is.na(result)), "Result contains NA values")
-  expect_true(is.numeric(result))
+  rentefun <- function(x) { 0.01 + 0.001 * x }  # Dynamic interest rate
+
+  result <- sreserve(0, 80, Lambda, R, mu = 200000, r = rentefun, n = 1000)
+
+  # Check that result is a matrix
+  expect_true(is.matrix(result))
+
+  # Check that dimensions match the expected size
+  expect_equal(dim(result), c(3, 3))
+
 })

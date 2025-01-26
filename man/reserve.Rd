@@ -4,14 +4,14 @@
 \alias{reserve}
 \title{Reserve
 This function calculates the reserve given the reward matrix and some constant rate
-This function requires proper construction of reward matrix like specified in the lecture notes provided in the course Liv1 at the University of Copenhagen}
+This function requires proper construction of reward matrix as specified in the lecture notes provided in the course Liv1 at the University of Copenhagen.}
 \usage{
-reserve(s, t, Lambda, R, mu, r, n)
+reserve(t, TT, Lambda, R, mu, r, n)
 }
 \arguments{
-\item{s}{initial timepoint}
+\item{t}{initial timepoint}
 
-\item{t}{end timepoint}
+\item{TT}{end timepoint}
 
 \item{Lambda}{intensity matrix}
 
@@ -21,15 +21,15 @@ reserve(s, t, Lambda, R, mu, r, n)
 
 \item{r}{constant rate as a scalar}
 
-\item{n}{number of steps for the runge kutta algorithm}
+\item{n}{number of steps for the Runge-Kutta algorithm}
 }
 \value{
-returns an entry in a matrix
+Returns a matrix of statewise reserves
 }
 \description{
 Reserve
 This function calculates the reserve given the reward matrix and some constant rate
-This function requires proper construction of reward matrix like specified in the lecture notes provided in the course Liv1 at the University of Copenhagen
+This function requires proper construction of reward matrix as specified in the lecture notes provided in the course Liv1 at the University of Copenhagen.
 }
 \examples{
 Lambda <- function(x) matrix(c(-0.1, 0.1, 0, -0.1), 2, 2)

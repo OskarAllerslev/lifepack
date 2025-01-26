@@ -57,8 +57,12 @@ dR <- function(x, mu) {
   }
 }
 
+rentefun <- function(x) { 0.01 + 0.001 * x }  # Dynamic interest rate
 
 
 prodint(Lambda, 0,80, 1000)
-reserve(0,80, Lambda, R, mu=200000, r = 0.01, n = 1000)
-equiv_premium(0, 1, Lambda, R, dR, 0.05, 0.03, 100)
+
+reserve(0, 80, Lambda, R, mu = 200000, r = 0.01, n = 1000)
+
+sreserve(0,80, Lambda, R, mu=200000, r = rentefun, 1000)
+equiv_premium(0, 1, Lambda, R, dR, mu = 0.05, r = 0.03, n = 1000)

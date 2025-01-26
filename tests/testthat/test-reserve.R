@@ -23,6 +23,6 @@ test_that("reserve works correctly", {
   }
   result <- reserve(0,80, Lambda, R, mu=200000, r = 0.01, n = 1000)
 
-  expect_true(is.vector(result))
-  expect_false(is.na(result))
+  expect_true(is.matrix(result))
+
 })

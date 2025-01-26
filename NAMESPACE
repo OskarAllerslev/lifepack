@@ -3,3 +3,4 @@
 export(equiv_premium)
 export(prodint)
 export(reserve)
+export(sreserve)
