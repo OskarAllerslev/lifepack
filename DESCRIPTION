@@ -1,11 +1,18 @@
 Package: lifepack
 Title: Insurance Reserve Calculations
-Version: 0.0.8
+Version: 0.1.0  
 Authors@R: 
     person("Oskar", "Allerslev", email = "Oskar.m1660@gmail.com", role = c("aut", "cre"))
 Description: Calculates insurance reserves and equivalence premiums using advanced numerical methods, including the Runge-Kutta algorithm and product integrals for transition probabilities. This package is useful for actuarial analyses and life insurance modeling, facilitating accurate financial projections.
 License: GPL-3
 Encoding: UTF-8
+Imports: 
+    Rcpp,
+    RcppArmadillo
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo
+NeedsCompilation: yes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: 
